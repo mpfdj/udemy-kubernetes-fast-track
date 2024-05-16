@@ -11,16 +11,23 @@ kube proxy
 kube dns
 
 
+# Some useful commands
 kubectl get pods -o wide
 
 kubectl exec -it <POD ID> -- /bin/bash
+kubectl exec -it <POD ID> -c <CONTAINER NAME> -- /bin/bash
+
 kubectl logs -f <POD ID>
 kubectl logs -f <POD ID> -c <CONTAINER NAME>  # When running multiple containers in a pod
+
 kubectl describe pod <POD ID>
+
 kubectl get pod <POD ID> -o yaml > mypod.yml
+
 kubectl edit deployment <DEPLOYMENT ID>
 
 minikube addons enable metrics-server
+
 kubectl top pod
 watch kubectl top pod <POD ID>
 watch kubectl top pod <POD ID> --containers
@@ -33,9 +40,17 @@ kubectl label nodes <NODE ID> mylabel=hello
 
 
 
+# Autoscaling
+HPA - Horizontal Pod Autoscaling
+VPA - Vertical Pod Autoscaling
+
+Custom Metrics API (for example number of requests)
+Default Metrics are CPU and Memory
 
 
-Stay up to date
+
+
+# Stay up to date
 Technology is changing fast, are you keeping up? Or you can’t track the latest trends because you have so little time?
 
 Change that today. It’s me – TJ Addams and I will help you navigate the complex world of DevOps.
